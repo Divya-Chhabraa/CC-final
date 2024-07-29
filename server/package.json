@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "A combined backend and socket server for the application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "moment": "^2.27.0",
+    "socket.io": "^4.7.5",
+    "uuid": "^8.3.0",
+    "webrtc-adapter": "^7.7.0",
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
+    "mysql": "^2.18.1",
+    "pg": "^8.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
