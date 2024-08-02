@@ -5,10 +5,7 @@ const cors = require("cors");
 const app=express();
 app.use(express.json());
 
-app.use(cors({
-    origin: 'http://192.168.242.4:3000', // Replace with your IP address and port
-    credentials: true // If you're using cookies for authentication
-  }));
+app.use(cors());
 
 const db = mysql.createConnection({
     host:"localhost",
@@ -46,6 +43,31 @@ app.post("/login", (req, res)=>{
         }
     })
 })
+
+app.post("/feedback", (req, res)=>{
+    const sql="INSERT INTO feedback(`name`, `rating`, `review`) VALUES(?)";
+    const values=[
+        req.body.name,
+        req.body.rating,
+        req.body.review
+    ]
+    db.query(sql, [values], (err, data)=>{
+        if(err){
+            return res.json("Error");
+        }
+        return res.json(data);
+    })
+})
+
+app.get('/api/feedback', async (req, res) => {
+    try {
+      const result = await pool.query('SELECT * FROM feedback');
+      res.json(result.rows);
+    } catch (error) {
+      console.error('Error fetching feedback:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
 
 app.listen(8081, ()=>{
     console.log("listening");

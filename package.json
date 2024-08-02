@@ -18,6 +18,11 @@
     "moment": "^2.29.1",
     "mysql": "^2.18.1",
     "nodemon": "^3.0.0",
+    "react-calendar": "^5.0.0",
+    "react-datetime": "^3.2.0",
+    "react-slick": "^0.30.2",
+    "react-star-ratings": "^2.3.0",
+    "slick-carousel": "^1.8.1",
     "socket.io": "^4.7.1",
     "socket.io-client": "^4.7.5"
   },
